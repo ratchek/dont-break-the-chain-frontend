@@ -1,0 +1,51 @@
+
+.day{
+  border-color: #8b0000;
+  /* border-color: #0D4FF2; */
+  border-style: solid;
+  border-width: 0.2em;
+  width: 5em;
+  height: 5em;
+  margin: 0.5em;
+  padding: 1em;
+  color: #0D4FF2;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.day:hover{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: transform 50ms ease-in-out;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.success{
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><path d='M1 0 L0 1 L99 100 L100 99' fill='darkred' /><path d='M0 99 L99 0 L100 1 L1 100' fill='darkred' /></svg>");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size: 100% 100%, auto;
+
+}
+.odd-month{
+  background-color: #0DC2F2;
+}
+
+.even-month{
+  background-color: #0DF2B0;
+}
+.week {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+#today{
+  background-color: #f1c145;
+}
