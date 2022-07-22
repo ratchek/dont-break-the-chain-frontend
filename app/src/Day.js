@@ -1,5 +1,4 @@
 import { isEvenMonth } from "./TimeTravel";
-import {useState} from 'react';
 
 const Day = (props) => {
   const isToday = (date) => { return date.toDateString() === new Date().toDateString();}
@@ -7,13 +6,15 @@ const Day = (props) => {
   classes += " day";
   classes += isEvenMonth(props.date) ? " even-month" : " odd-month";
   classes += props.isSuccess ? " success" : "";
-
+  const onClick = () => {
+    props.onClick(props.date)
+  }
   return (
     <div 
       className= {classes}
       id={isToday(props.date) ?"today": null}
       key = {props.date.getDate()}
-      onClick = {props.clickHandler}
+      onClick = {onClick}
     > 
         {props.date.getMonth() + " / "  + props.date.getDate()} 
     </div>
