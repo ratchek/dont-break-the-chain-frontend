@@ -1,40 +1,29 @@
 // Utility functions for handling calendar objects
 
-import {useState} from 'react';
-
 export function isDateSuccess(cal, date){
-    let year = date.year
-    let month = date.month
-    let day = date.day
+    let year = date.getFullYear();
+    // Having months zero-indexed bugs me for some reason.
+    let month = date.getMonth()+1;
+    let day = date.getDate();
     if (year in cal){
         if (month in cal[year]){
-            if (day in cal[year][month]){
+            if (cal[year][month].has(day)){
                 return true;
             }
         }
     }                
     return false;
 }
-// I know the "React" way of doing things is to copy the whole state
-// in order to force a rerender, but my cal might get quite big, and
-// I don't want to keep recopying it, because I feel that might take a lot of time
-// So here's a workaround
-function useForceRerender(){
-    const [value, setValue] = useState(0); 
-    setValue(value+1);
-}
 
 export function changeDateSuccess(cal, date){
+    console.log("heyoo")
     let year = date.getFullYear();
-    let month = date.getMonth();
+    // Having months zero-indexed bugs me for some reason.
+    let month = date.getMonth()+1;
     let day = date.getDate();
     const modified_cal = Object.assign({}, cal)
-    console.log(`Hey, with ${date}`)
-    console.log("original")
     console.log(cal)
-    console.log("modified")
     console.log(modified_cal)
-    console.log(year);
     // TODO
     // This should probably be checking if this was the last day
     // in the month/year and then cleaning those up as well

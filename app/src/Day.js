@@ -5,7 +5,7 @@ const Day = (props) => {
   let classes = "";
   classes += " day";
   classes += isEvenMonth(props.date) ? " even-month" : " odd-month";
-  classes += props.isSuccess ? " success" : "";
+  classes += props.checkSuccess(props.date) ? " success" : "";
   const onClick = () => {
     props.onClick(props.date)
   }
@@ -16,7 +16,7 @@ const Day = (props) => {
       key = {props.date.getDate()}
       onClick = {onClick}
     > 
-        {props.date.getMonth() + " / "  + props.date.getDate()} 
+        {(props.date.getMonth() + 1) + " / "  + props.date.getDate()} 
     </div>
   );
 }
